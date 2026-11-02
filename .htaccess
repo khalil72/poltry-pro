@@ -1,0 +1,4 @@
+# Send every request to /public so nothing outside it can be fetched directly.
+Options -Indexes
+RewriteEngine On
+RewriteRule ^(.*)$ public/$1 [L]

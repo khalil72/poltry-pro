@@ -1,0 +1,4 @@
+<div class="page-head"><h1 class="page-title"><i class="bi bi-shield-lock"></i> Roles &amp; permissions</h1></div>
+<div class="card"><div class="table-responsive"><table class="table align-middle mb-0"><thead><tr><th>Role</th><th>Description</th><th>Farm access</th><th class="text-end">Users</th><th class="text-end">Permissions</th><th></th></tr></thead><tbody>
+<?php foreach ($roles as $r): ?><tr><td><strong><?= e($r['name']) ?></strong></td><td><?= e($r['description']) ?></td><td><?= $r['all_farms'] ? 'All farms' : 'Assigned farms' ?></td><td class="text-end"><?= (int) $r['user_count'] ?></td><td class="text-end"><?= $r['slug'] === 'super_admin' ? 'All' : (int) $r['perm_count'] ?></td><td class="text-end"><?php if ($r['slug'] !== 'super_admin' && can('roles.manage')): ?><a class="btn btn-sm btn-outline-secondary" href="<?= e(url('admin/roles/' . $r['id'] . '/edit')) ?>">Edit permissions</a><?php endif; ?></td></tr><?php endforeach; ?>
+</tbody></table></div></div>

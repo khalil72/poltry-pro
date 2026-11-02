@@ -1,0 +1,7 @@
+# Uploaded files are data: never execute them.
+Options -ExecCGI -Indexes
+RemoveHandler .php .phtml .php3 .php4 .php5 .phar
+RemoveType .php .phtml .php3 .php4 .php5 .phar
+<FilesMatch "\.(php|phtml|php3|php4|php5|phar|pl|py|cgi|sh|shtml)$">
+  Require all denied
+</FilesMatch>
